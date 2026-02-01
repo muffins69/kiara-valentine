@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For Kiara ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      background: #ffb6c1;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .box {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      width: 300px;
+      position: relative;
+    }
+
+    button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #yes {
+      background: hotpink;
+      color: white;
+    }
+
+    #no {
+      background: lightgray;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h2 id="text">Kiara, will you be my Valentine? 💖</h2>
+
+    <button id="yes" onclick="yes()">Yes</button>
+    <button id="no" onmouseover="move()">No</button>
+  </div>
+
+<script>
+function move() {
+  const no = document.getElementById("no");
+
+  const x = Math.random() * 200;
+  const y = Math.random() * 200;
+
+  no.style.left = x + "px";
+  no.style.top = y + "px";
+}
+
+function yes() {
+  document.getElementById("text").innerHTML =
+  "YAYYY!!! 🎉💖 You made me so happy!";
+}
+</script>
+
+</body>
+</html>
