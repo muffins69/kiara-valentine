@@ -1,75 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>For Kiara ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For Kiara ❤️</title>
 
-  <style>
-    body {
-      background: #ffb6c1;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    .box {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      text-align: center;
-      width: 300px;
-      position: relative;
-    }
+<style>
+body {
+  background: #ffb6c1;
+  font-family: Arial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
 
-    button {
-      padding: 10px 18px;
-      border: none;
-      border-radius: 20px;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 10px;
-    }
+.box {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  width: 300px;
+  position: relative;
+}
 
-    #yes {
-      background: hotpink;
-      color: white;
-    }
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+}
 
-    #no {
-      background: lightgray;
-      position: absolute;
-    }
-  </style>
+#yes {
+  background: hotpink;
+  color: white;
+}
+
+#no {
+  background: lightgray;
+  position: absolute;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="box">
-   <img id="text" src="IMG_7267.jpeg" width="300" style="border-radius:20px;"> 
+<div class="box">
 
-    <button id="yes" onclick="yes()">Yes</button>
-    <button id="no" onmouseover="move()">No</button>
-  </div>
+<!-- FIRST SCREEN (KIARA NAME IMAGE) -->
+<img id="text" src="kiara.png" width="250" style="border-radius:15px;"><br>
+
+<button onclick="next()">Next ❤️</button>
+
+</div>
 
 <script>
+
+let step = 1;
+
+function next() {
+  const box = document.querySelector(".box");
+
+  // SECOND SCREEN (VALENTINE CAT)
+  if(step === 1){
+    box.innerHTML = `
+    <img id="text" src="IMG_7267.jpeg" width="250" style="border-radius:15px;"><br>
+    <button id="yes" onclick="yes()">Yes</button>
+    <button id="no" onmouseover="move()">No</button>
+    `;
+    step = 2;
+  }
+}
+
+// NO BUTTON RUNS AWAY
 function move() {
   const no = document.getElementById("no");
-
   const x = Math.random() * 200;
   const y = Math.random() * 200;
 
   no.style.left = x + "px";
   no.style.top = y + "px";
 }
+
+// YES SHOWS HAPPY IMAGE
 function yes() {
-  document.getElementById("text").innerHTML =
-  '<img src="C1A265E7-7F7E-4162-9014-65FDA7BED77A.png" width="300" style="border-radius:20px;"><br>YAYYY!!! 🎉💖';
+  document.querySelector(".box").innerHTML = `
+  <img src="C1A265E7-7F7E-4162-9014-65FDA7BED77A.png" width="250" style="border-radius:15px;"><br>
+  <h2>YAYYY!!! 🎉💖</h2>
+  `;
 }
-;
-}
+
 </script>
 
 </body>
