@@ -6,42 +6,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-body {
-  background: #ffb6c1;
-  font-family: Arial;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+body{
+  background:#ffb6c1;
+  font-family:Arial;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  margin:0;
 }
 
-.box {
-  background: white;
-  padding: 25px;
-  border-radius: 20px;
-  text-align: center;
-  width: 300px;
-  position: relative;
+.box{
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  text-align:center;
+  width:300px;
+  position:relative;
 }
 
-button {
-  padding: 10px 18px;
-  border: none;
-  border-radius: 20px;
-  font-size: 16px;
-  cursor: pointer;
-  margin: 10px;
+img{
+  width:100%;
+  border-radius:15px;
 }
 
-#yes {
-  background: hotpink;
-  color: white;
+button{
+  padding:10px 18px;
+  border:none;
+  border-radius:20px;
+  font-size:16px;
+  cursor:pointer;
+  margin:10px;
 }
 
-#no {
-  background: lightgray;
-  position: absolute;
+#yes{
+  background:hotpink;
+  color:white;
+}
+
+#no{
+  background:lightgray;
+  position:absolute;
 }
 </style>
 </head>
@@ -50,10 +55,11 @@ button {
 
 <div class="box">
 
-<!-- FIRST SCREEN (KIARA NAME IMAGE) -->
-<img id="text" src="kiara.png" width="250" style="border-radius:15px;"><br>
+<img id="mainImg" src="0F0A991E-BA85-4EF6-89DF-C6468B489CF2.png">
 
+<div id="buttons">
 <button onclick="next()">Next ❤️</button>
+</div>
 
 </div>
 
@@ -61,36 +67,29 @@ button {
 
 let step = 1;
 
-function next() {
-  const box = document.querySelector(".box");
+function next(){
 
-  // SECOND SCREEN (VALENTINE CAT)
-  if(step === 1){
-    box.innerHTML = `
-    <img id="text" src="IMG_7267.jpeg" width="250" style="border-radius:15px;"><br>
-    <button id="yes" onclick="yes()">Yes</button>
-    <button id="no" onmouseover="move()">No</button>
-    `;
-    step = 2;
-  }
+// STEP 1 → show valentine image
+if(step === 1){
+document.getElementById("mainImg").src = "IMG_7267.jpeg";
+document.getElementById("buttons").innerHTML =
+'<button id="yes" onclick="yes()">Yes</button><button id="no" onmouseover="move()">No</button>';
+step = 2;
+}
 }
 
-// NO BUTTON RUNS AWAY
-function move() {
-  const no = document.getElementById("no");
-  const x = Math.random() * 200;
-  const y = Math.random() * 200;
-
-  no.style.left = x + "px";
-  no.style.top = y + "px";
+function move(){
+const no = document.getElementById("no");
+const x = Math.random()*200;
+const y = Math.random()*200;
+no.style.left = x+"px";
+no.style.top = y+"px";
 }
 
-// YES SHOWS HAPPY IMAGE
-function yes() {
-  document.querySelector(".box").innerHTML = `
-  <img src="C1A265E7-7F7E-4162-9014-65FDA7BED77A.png" width="250" style="border-radius:15px;"><br>
-  <h2>YAYYY!!! 🎉💖</h2>
-  `;
+function yes(){
+document.getElementById("mainImg").src = "C1A265E7-7F7E-4162-9014-65FDA7BED77A.png";
+document.getElementById("buttons").innerHTML =
+"<h3>YAYYY ❤️ You made me so happy!</h3>";
 }
 
 </script>
